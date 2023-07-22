@@ -8,11 +8,13 @@ import {
 import React from "react";
 import { StyleSheet, Text, useColorScheme, View } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
+import AddContact from "./components/add-contact";
+import ContactList from "./components/contact-list";
 
 const App = () => {
   return (
     <ThirdwebProvider
-      activeChain="mumbai"
+      activeChain="optimism-goerli"
       supportedWallets={[metamaskWallet(), rainbowWallet(), localWallet()]}
     >
       <AppInner />
@@ -30,8 +32,10 @@ const AppInner = () => {
 
   return (
     <View style={styles.view}>
-      <Text style={textStyles}>React Native thirdweb starter</Text>
+      <Text style={textStyles}>Contact Book</Text>
       <ConnectWallet />
+      <AddContact />
+      <ContactList />
     </View>
   );
 };
@@ -40,7 +44,7 @@ const styles = StyleSheet.create({
   view: {
     height: "100%",
     display: "flex",
-    justifyContent: "center",
+    marginTop: 50,
     alignItems: "center",
     alignContent: "center",
   },
